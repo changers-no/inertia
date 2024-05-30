@@ -87,7 +87,9 @@ const Head: InertiaHead = function ({ children, title }) {
   }
 
   function renderNodes(nodes) {
-    const computed = React.Children.toArray(nodes).filter((node) => node).map((node) => renderNode(node))
+    const computed = React.Children.toArray(nodes)
+      .filter((node) => node)
+      .map((node) => renderNode(node))
     if (title && !computed.find((tag) => tag.startsWith('<title'))) {
       computed.push(`<title inertia>${title}</title>`)
     }
